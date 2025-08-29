@@ -1,0 +1,8 @@
+com\gitb\vs\ValidateRequest.class
+com\gitb\vs\ValidationResponse.class
+com\gitb\types\v1\TAR.class
+com\gitb\types\v1\TestAssertionReportType.class
+se\oskar\fhir\plugin\FhirJsonValidatorPlugin.class
+com\gitb\vs\ValidationService.class
+se\oskar\fhir\plugin\Runner.class
+com\gitb\types\v1\TestResultType.class
