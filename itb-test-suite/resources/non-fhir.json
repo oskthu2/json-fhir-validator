@@ -1,0 +1,22 @@
+{
+  "name": "John Doe",
+  "age": 30,
+  "email": "john.doe@example.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345"
+  },
+  "hobbies": [
+    "reading",
+    "swimming",
+    "cooking"
+  ],
+  "isActive": true,
+  "metadata": {
+    "created": "2024-01-01T00:00:00Z",
+    "version": "1.0"
+  }
+}
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="fhir-json-validation" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>FHIR JSON Validation Test Suite</gitb:name>
+        <gitb:version>1.0</gitb:version>
+        <gitb:description>A comprehensive test suite for validating FHIR JSON resources using the custom FHIR JSON validator plugin</gitb:description>
+        <gitb:authors>FHIR Validation Team</gitb:authors>
+        <gitb:type>CONFORMANCE</gitb:type>
+    </metadata>
+    
+    <actors>
+        <gitb:actor id="json-validator">
+            <gitb:name>JSON Validator with FHIR Plugin</gitb:name>
+            <gitb:desc>JSON validator service that automatically invokes our FHIR validation plugin</gitb:desc>
+            <gitb:endpoint name="validation-endpoint">
+                <gitb:config name="validation-service">http://localhost:8080/domains/fhir-validation/validation</gitb:config>
+            </gitb:endpoint>
+        </gitb:actor>
+    </actors>
+    
+    <testcase id="validate-fhir-patient-basic"/>
+    <testcase id="validate-fhir-patient-with-ig"/>
+    <testcase id="validate-fhir-patient-with-profile"/>
+    <testcase id="validate-fhir-patient-with-ig-and-profile"/>
+    <testcase id="validate-invalid-json"/>
+    <testcase id="validate-non-fhir-json"/>
+</testsuite>
+

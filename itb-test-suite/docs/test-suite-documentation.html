@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR JSON Validation Test Suite Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1, h2, h3 { color: #2c3e50; }
+        .test-case { background: #f8f9fa; padding: 20px; margin: 20px 0; border-left: 4px solid #007bff; }
+        .success { border-left-color: #28a745; }
+        .failure { border-left-color: #dc3545; }
+        code { background: #e9ecef; padding: 2px 4px; border-radius: 3px; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>FHIR JSON Validation Test Suite</h1>
+    
+    <h2>Overview</h2>
+    <p>This test suite validates the custom FHIR JSON validator plugin by testing various scenarios including basic validation, implementation guide constraints, profile validation, and error handling.</p>
+    
+    <h2>Test Cases</h2>
+    
+    <div class="test-case success">
+        <h3>1. Validate FHIR Patient Resource - Basic</h3>
+        <p><strong>Purpose:</strong> Tests basic FHIR Patient resource validation without additional constraints.</p>
+        <p><strong>Expected Result:</strong> SUCCESS</p>
+        <p><strong>Test Data:</strong> <code>patient-basic.json</code></p>
+    </div>
+    
+    <div class="test-case success">
+        <h3>2. Validate FHIR Patient Resource - With Implementation Guide</h3>
+        <p><strong>Purpose:</strong> Tests FHIR Patient validation against a specific implementation guide.</p>
+        <p><strong>Expected Result:</strong> SUCCESS</p>
+        <p><strong>Test Data:</strong> <code>patient-basic.json</code></p>
+        <p><strong>Parameters:</strong> <code>ig=hl7.fhir.r4.core</code></p>
+    </div>
+    
+    <div class="test-case success">
+        <h3>3. Validate FHIR Patient Resource - With Profile</h3>
+        <p><strong>Purpose:</strong> Tests FHIR Patient validation against a specific profile.</p>
+        <p><strong>Expected Result:</strong> SUCCESS</p>
+        <p><strong>Test Data:</strong> <code>patient-basic.json</code></p>
+        <p><strong>Parameters:</strong> <code>profile=http://hl7.org/fhir/StructureDefinition/Patient</code></p>
+    </div>
+    
+    <div class="test-case success">
+        <h3>4. Validate FHIR Patient Resource - With IG and Profile</h3>
+        <p><strong>Purpose:</strong> Tests FHIR Patient validation against both implementation guide and profile constraints.</p>
+        <p><strong>Expected Result:</strong> SUCCESS</p>
+        <p><strong>Test Data:</strong> <code>patient-basic.json</code></p>
+        <p><strong>Parameters:</strong> <code>ig=hl7.fhir.r4.core</code>, <code>profile=http://hl7.org/fhir/StructureDefinition/Patient</code></p>
+    </div>
+    
+    <div class="test-case failure">
+        <h3>5. Validate Invalid JSON</h3>
+        <p><strong>Purpose:</strong> Tests the validator's handling of malformed JSON input.</p>
+        <p><strong>Expected Result:</strong> FAILURE</p>
+        <p><strong>Test Data:</strong> <code>invalid-json.json</code></p>
+        <p><strong>Note:</strong> This file contains a missing comma, making it invalid JSON.</p>
+    </div>
+    
+    <div class="test-case failure">
+        <h3>6. Validate Non-FHIR JSON</h3>
+        <p><strong>Purpose:</strong> Tests the validator's handling of valid JSON that is not a FHIR resource.</p>
+        <p><strong>Expected Result:</strong> FAILURE</p>
+        <p><strong>Test Data:</strong> <code>non-fhir.json</code></p>
+        <p><strong>Note:</strong> This file contains valid JSON but lacks the required <code>resourceType</code> field.</p>
+    </div>
+    
+    <h2>Prerequisites</h2>
+    <ul>
+        <li>FHIR JSON validator plugin deployed to domain <code>fhir-validation</code></li>
+        <li>ITB instance running and accessible</li>
+        <li>Domain configured with the plugin in <code>config.properties</code></li>
+    </ul>
+    
+    <h2>Usage</h2>
+    <p>Import this test suite into your ITB instance using the Test Suite management interface. The test suite will automatically create the necessary actors and test cases.</p>
+    
+    <h2>Custom Parameters</h2>
+    <p>The validator plugin supports the following custom parameters:</p>
+    <ul>
+        <li><code>ig</code> - Implementation guide identifier (e.g., "hl7.fhir.r4.core")</li>
+        <li><code>profile</code> - Profile URL for validation (e.g., "http://hl7.org/fhir/StructureDefinition/Patient")</li>
+    </ul>
+    
+    <h2>Standard ITB Inputs</h2>
+    <p>The following inputs are automatically provided by ITB:</p>
+    <ul>
+        <li><code>contentToValidate</code> - File path to the content being validated</li>
+        <li><code>domain</code> - Domain identifier</li>
+        <li><code>validationType</code> - Type of validation</li>
+        <li><code>tempFolder</code> - Temporary folder for processing</li>
+        <li><code>locale</code> - Locale for error messages</li>
+    </ul>
+</body>
+</html>
+
