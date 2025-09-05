@@ -20,7 +20,7 @@ A robust GITB validator plugin for JSON FHIR (R4) resources using HAPI FHIR. Thi
 
 ## 🏗️ Architecture
 
-The plugin implements the GITB validation service interface and provides:
+The plugin implements the **GITB validation service interface** and follows the [ITB Guide for Creating Custom Validator Plugins](https://www.itb.ec.europa.eu/docs/guides/latest/creatingCustomValidatorPlugin/index.html). It provides:
 
 - **Input Processing**: Intelligent detection and parsing of different content types
 - **FHIR Validation**: JSON parsing and basic FHIR resource validation
@@ -201,8 +201,16 @@ The build creates a self-contained JAR with all dependencies included, making it
 
 ## 🔄 Integration
 
+### ITB Compliance
+This plugin fully conforms to the [ITB Guide for Creating Custom Validator Plugins](https://www.itb.ec.europa.eu/docs/guides/latest/creatingCustomValidatorPlugin/index.html) and implements:
+
+- **Standard ITB Inputs**: `contentToValidate`, `domain`, `validationType`, `tempFolder`, `locale`
+- **Proper TAR Reporting**: Structured validation reports with location information
+- **Localization Support**: Multi-language message support via resource bundles
+- **Plugin Architecture**: Follows ITB plugin loading and configuration patterns
+
 ### GITB Framework
-This plugin is designed to integrate with the GITB (Generic Integration Testing Framework) and can be used as:
+This plugin is designed to integrate with the GITB (Generic Integration Testing Framework) and follows the [official ITB plugin standards](https://www.itb.ec.europa.eu/docs/guides/latest/creatingCustomValidatorPlugin/index.html). It can be used as:
 
 - A standalone validation service
 - A component in larger testing workflows

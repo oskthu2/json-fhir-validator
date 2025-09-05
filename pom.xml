@@ -59,6 +59,9 @@
         <version>3.11.0</version>
         <configuration>
           <release>17</release>
+          <compilerArgs>
+            <arg>-Xlint:none</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>
@@ -73,6 +76,8 @@
             </goals>
             <configuration>
               <createDependencyReducedPom>false</createDependencyReducedPom>
+              <shadedArtifactId>${project.artifactId}-shaded</shadedArtifactId>
+              <shadedClassifier>shaded</shadedClassifier>
               <filters>
                 <filter>
                   <artifact>*:*</artifact>
